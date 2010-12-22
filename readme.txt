@@ -3,7 +3,7 @@ Contributors: vanderwijk
 Donate link: http://www.vanderwijk.com/
 Tags: custom, admin, customize, logo
 Tested up to: 3.0.1
-Stable tag: 1.0
+Stable tag: 1.1
 Requires at least: 2.9.2
 
 With this plugin you can use your own logo on the WordPress login page.
@@ -43,6 +43,9 @@ Finally, this plugin is ready to be localized. All you have to do is to use the 
 
 = 1.0 =
 First release
+
+= 1.1 =
+Minor update, moved the Customize Admin Options page to the Settings menu.
 
 == Upgrade Notice ==
 

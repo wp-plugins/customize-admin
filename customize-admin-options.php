@@ -1,13 +1,13 @@
 <?php
+
 // Create custom plugin settings menu
 add_action('admin_menu', 'custom_admin_create_menu');
-
 function custom_admin_create_menu() {
 
-	//create new top-level menu
-	add_menu_page('Customize Admin', 'Customize Admin', 'administrator', __FILE__, 'custom_admin_settings_page',plugins_url('/images/icon.png', __FILE__));
+	// Create a submenu page in the 'Settings' menu
+	add_submenu_page( 'options-general.php', 'Customize Admin', 'Customize Admin', 'manage_options', 'customize-admin/customize-admin-options.php', 'custom_admin_settings_page');
 
-	//call register settings function
+	// Call register settings function
 	add_action( 'admin_init', 'register_mysettings' );
 }
 
