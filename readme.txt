@@ -12,7 +12,7 @@ With this plugin you can use your own logo on the WordPress login page.
 
 With this plugin you can display your own logo on the WordPress login page. You can also specify the link attached to the logo. By default you are redirected to the homepage of your site.
 
-You can find more information about this plugin and a screencast video which shows the plugin in action on the [plugin homepage](http://www.vanderwijk.com/wordpress/custom-admin-plugin/).
+You can find more information about this plugin and a screencast video which shows the plugin in action on the [plugin homepage](http://www.vanderwijk.com/wordpress/customize-admin-plugin/).
 
 == Screenshots ==
 
