@@ -1,10 +1,12 @@
 === Customize Admin ===
 Contributors: vanderwijk
-Donate link: http://www.vanderwijk.com/
+Author URI: http://www.vanderwijk.com/
+Donate link: http://www.vanderwijk.com/wordpress/support/
 Tags: custom, admin, customize, logo
-Tested up to: 3.0.1
-Stable tag: 1.1
 Requires at least: 2.9.2
+Tested up to: 3.0.3
+Stable tag: 1.1
+
 
 With this plugin you can use your own logo on the WordPress login page.
 
