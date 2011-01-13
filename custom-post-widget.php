@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Custom Post Widget
- Plugin URI: http://www.vanderwijk.com/services/web-design/wordpress-custom-post-widget/
+ Plugin URI: http://www.vanderwijk.com/wordpress/wordpress-custom-post-widget/
  Description: Show the content of a custom post of the type 'content_block' in a widget.
  Version: 1.3
  Author: Johan van der Wijk
@@ -45,9 +45,10 @@ class custom_post_widget extends WP_Widget
           </select>
         </label>
       </p>
-	 <?php ?>
-     <input type="hidden" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $widgetExtraTitle; ?>" />
-     <?php wp_reset_query(); ?>
+      
+	  <?php ?>
+        <input type="hidden" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $widgetExtraTitle; ?>" />
+      <?php wp_reset_query(); ?>
 	  
       <p>
         <input class="checkbox" type="checkbox" <?php checked( (bool) $instance['show_custom_post_title'], true ); ?> id="<?php echo $this->get_field_id( 'show_custom_post_title' ); ?>" name="<?php echo $this->get_field_name( 'show_custom_post_title' ); ?>" />
