@@ -3,11 +3,11 @@
  Plugin Name: Customize Admin
  Plugin URI: http://www.vanderwijk.com/wordpress/customize-admin/
  Description: This plugin allows you to customize the branding of the WordPress admin interface.
- Version: 1.1
+ Version: 1.2
  Author: Johan van der Wijk
  Author URI: http://www.vanderwijk.com
 
- Release notes: 1.1 Minor update
+ Release notes: 1.2 Added the option to remove the shadow on the left menu which was introduced in WordPress 3.2
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -24,35 +24,42 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-require_once('customize-admin-options.php');
-
-add_action('login_head', 'custom_login_logo', 99);
-add_filter('login_headerurl', 'custom_login_logo_url');
-add_filter('login_headertitle', 'custom_login_logo_title');
-
-/* Title attribute for the logo on the login screen */
-function custom_login_logo_title($message) {
-	if (get_option('custom_admin_logo_link') != '')
-		printf(__("Go to %s"), get_option('custom_admin_logo_link'));
+// Title attribute for the logo on the login screen
+function ca_logo_title($message) {
+	if (get_option('ca_logo_url') != '')
+		printf(__("Go to %s"), get_option('ca_logo_url'));
 	else
 		printf(__("Return to %s"), get_bloginfo('name'));
 }
 
-/* URL for the logo on the login screen */
-function custom_login_logo_url($url) {
-	if (get_option('custom_admin_logo_link') != '')
-		return get_option('custom_admin_logo_link');
+// URL for the logo on the login screen
+function ca_logo_url($url) {
+	if (get_option('ca_logo_url') != '')
+		return get_option('ca_logo_url');
 	else
 		return get_bloginfo('siteurl');
 }
 
-/* CSS for custom logo on the login screen */
-function custom_login_logo() {
-	if (get_option('custom_admin_logo_file_location') != '')
-		echo '<style>h1 a { background-image:url("' . get_option('custom_admin_logo_file_location') . '")!important; }</style>';
+// CSS for custom logo on the login screen
+function ca_logo_file() {
+	if (get_option('ca_logo_file') != '')
+		echo '<style>h1 a { background-image:url("' . get_option('ca_logo_file') . '")!important; }</style>';
 	else
 		$stylesheet_uri = get_bloginfo('siteurl') . '/' . PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/customize-admin.css';
 		echo '<link rel="stylesheet" type="text/css" href="' . $stylesheet_uri . '" />';
 }
-	
+
+// Remove the shadow from the left menu
+function ca_add_styles() {
+	if (get_option('ca_remove_shadow') != '')
+		echo '<style type="text/css">#adminmenushadow, #adminmenuback { background-image: none; }</style>';
+}
+
+add_filter('login_headertitle', 'ca_logo_title');
+add_filter('login_headerurl', 'ca_logo_url');
+add_action('login_head', 'ca_logo_file');
+add_action('admin_head', 'ca_add_styles');
+
+require_once('customize-admin-options.php');
+
 ?>
