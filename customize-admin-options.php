@@ -16,6 +16,7 @@ function ca_register_settings() {
 	register_setting( 'customize-admin-settings-group', 'ca_logo_file' );
 	register_setting( 'customize-admin-settings-group', 'ca_logo_url' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_shadow' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_generator' );
 }
 
 // Include files for media uploader
@@ -64,6 +65,14 @@ function ca_settings_page() { ?>
 				<td><label for="ca_remove_shadow">
 					<input id="ca_remove_shadow" type="checkbox" name="ca_remove_shadow" value="1" <?php checked( '1', get_option( 'ca_remove_shadow' ) ); ?> />
 					<br /><?php _e('Selecting this option removes the shadow from the admin menu on the left.') ?>
+					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e('Remove Generator Meta Tag') ?></th>
+				<td><label for="ca_remove_generator">
+					<input id="ca_remove_generator" type="checkbox" name="ca_remove_generator" value="1" <?php checked( '1', get_option( 'ca_remove_generator' ) ); ?> />
+					<br /><?php _e('Selecting this option removes the generator meta tag from the html source.') ?>
 					</label>
 				</td>
 			</tr>

@@ -5,7 +5,7 @@ Donate link: http://www.vanderwijk.com/wordpress/support/
 Tags: custom, admin, customize, logo
 Requires at least: 2.9.2
 Tested up to: 3.2
-Stable tag: 1.2
+Stable tag: 1.3
 
 With this plugin you can use your own logo on the WordPress login page.
 
@@ -50,6 +50,9 @@ Minor update, moved the Customize Admin Options page to the Settings menu.
 
 = 1.2 =
 Code cleanup, inclusion of [option to remove the admin shadow](http://www.vanderwijk.com/updates/remove-wordpress-3-2-admin-shadow-plugin/) which was introduced in WordPress 3.2.
+
+= 1.3 =
+Added option to remove generator meta tag from the head section of the html source.
 
 
 == Upgrade Notice ==

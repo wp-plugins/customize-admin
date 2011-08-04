@@ -3,11 +3,11 @@
  Plugin Name: Customize Admin
  Plugin URI: http://www.vanderwijk.com/wordpress/customize-admin/
  Description: This plugin allows you to customize the branding of the WordPress admin interface.
- Version: 1.2
+ Version: 1.3
  Author: Johan van der Wijk
  Author URI: http://www.vanderwijk.com
 
- Release notes: 1.2 Added the option to remove the shadow on the left menu which was introduced in WordPress 3.2
+ Release notes: 1.3 Added the option to remove the generator meta tag from the html source
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -55,10 +55,17 @@ function ca_add_styles() {
 		echo '<style type="text/css">#adminmenushadow, #adminmenuback { background-image: none; }</style>';
 }
 
+// Remove the shadow from the left menu
+function ca_remove_generator() {
+	if (get_option('ca_remove_generator') != '')
+		remove_action('wp_head', 'wp_generator');
+}
+
 add_filter('login_headertitle', 'ca_logo_title');
 add_filter('login_headerurl', 'ca_logo_url');
 add_action('login_head', 'ca_logo_file');
 add_action('admin_head', 'ca_add_styles');
+add_action('init', 'ca_remove_generator');
 
 require_once('customize-admin-options.php');
 
