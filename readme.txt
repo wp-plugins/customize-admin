@@ -1,7 +1,7 @@
 === Customize Admin ===
 Contributors: vanderwijk
 Author URI: http://www.vanderwijk.com/
-Donate link: http://www.vanderwijk.com/wordpress/support/
+Donate link: http://www.vanderwijk.com/wordpress/support/#donate
 Tags: custom, admin, customize, logo
 Requires at least: 2.9.2
 Tested up to: 3.2
