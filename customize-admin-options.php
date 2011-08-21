@@ -56,7 +56,7 @@ function ca_settings_page() { ?>
 				<td><label for="upload_image">
 					<input id="upload_image" type="text" size="36" name="ca_logo_file" value="<?php echo get_option('ca_logo_file'); ?>" />
 					<input id="upload_image_button" type="button" value="Upload Image" />
-					<br /><?php _e('Enter a URL or upload an image for the image. Maximum height: 70px, width: 310px.') ?>
+					<br /><?php _e('Enter a URL or upload an image for the image. Maximum height: 67px, width: 300px.') ?>
 					</label>
 				</td>
 			</tr>
