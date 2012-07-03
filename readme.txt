@@ -1,81 +1,66 @@
-=== Custom Post Widget ===
+=== Customize Admin ===
 Contributors: vanderwijk
 Author URI: http://www.vanderwijk.com/
-Donate link: http://www.vanderwijk.com/wordpress/support/
-Tags: custom-post, widget, sidebar
+Donate link: http://www.vanderwijk.com/wordpress/support/#donate
+Tags: custom, admin, customize, logo
 Requires at least: 2.9.2
-Tested up to: 3.1
+Tested up to: 3.4.1
 Stable tag: 1.4
 
-This plugin enables you to display the content of a custom post type called Content Block in a sidebar widget.
+With this plugin you can use your own logo on the WordPress login page.
 
 == Description ==
 
-The Custom Post Widget allows you to display the contents of a specific custom post in a widget.
+With this plugin you can display your own logo on the WordPress login page. You can also specify the link attached to the logo. By default you are redirected to the homepage of your site.
 
-Even though you could use the text widget that comes with the default WordPress install, this plugin has some clear benefits:
+You can find more information about this plugin and a screencast video which shows the plugin in action on the [plugin homepage](http://www.vanderwijk.com/wordpress/wordpress-customize-admin-plugin/).
 
-* If you are using widgets to display content on various areas of your template, this content can only be edited by users with administrator access. If you would like editors to modify the widget content, you can use this plugin to provide them access to the custom posts that provide the content for the widget areas.
-* It enables users to use the WYSIWYG editor for editing the content and adding images
-
-This plugin creates a 'content_block' custom post type. The title is never displayed, use this to describe the position of the widget on the page. Note that these content blocks can only be displayed in the context of the page. I have added 'public' => false to the custom post type which means that it is not accessible outside the page context.
-
-To add content to a widget, drag it to the required position in the sidebar and select the title of the custom post in the widget configuration.
-
-You can find more information about this plugin and a screencast video which shows the plugin in action on the [plugin homepage](http://www.vanderwijk.com/wordpress/wordpress-custom-post-widget/).
+The Customize Admin plugin also allows you to disable selected dashboard widgets and it can also disable the WordPress meta generator tag from the head section in your website's html code.
 
 == Screenshots ==
 
-1. After activating the plugin a new post type called 'Content Blocks' is added.
-2. The widget has a select box to choose the content block.
+1. You can specify the logo image and clickthrough link on the options page. It is also possible to disable the generator meta tag and specified dashboard widgets.
+
 
 == Installation ==
 
 1. First you will have to upload the plugin to the `/wp-content/plugins/` folder.
 2. Then activate the plugin in the plugin panel.
-You will see that a new custom post type has been added called Content Block.
-3. Type some content for the widget. You can choose to either use the title to describe the of the content on the page, or to display it. Check 'Show Post Title' to display the title on the page.
-4. Go to 'Appearance' > 'Widgets' and drag the Content Block widget to the required position in the sidebar.
-5. Select a Content Block from the drop-down list.
-6. Click save.
+If you have manage options rights you will see the new Custom Admin Settings menu.
+3. Specify a clickthrough url for the logo if required.
+4. Specify the url for the custom logo. The path can be relative from the root or include the domain name.
+5. If you have not yet uploaded a logo, you can do so via the Upload Image button. Make sure you click 'Insert into Post'. For the best result, use an image of maximum 67px height by 326px width.
+6. Click Save Changes.
 
 == Frequently Asked Questions ==
 
-= Why can't I use the default text-widget? =
+= Why did you make another admin logo plugin?  =
 
-Of course you can always use the default text widget, but if you prefer to use the WYSIWYG editor or if you have multiple editors and you don't want to give them administrator rights, it is recommended to use this plugin.
+There are already quite a few plugins that offer similar functionality, but the fact that my plugin uses the WordPress Media Library makes it super easy to upload and edit your own logo.
 
-= How can I show the content bock on a specific page? =
+I also am not aware of any other plugins that allow you to specify a clickthrough url for the logo. 
 
-It is recommended to install the Widget Logic plugin, this will give you complete flexibility on widget placement.
+Finally, this plugin is ready to be localized. All you have to do is to use the POT file for translating.
 
 == Changelog ==
+
+= 1.4 =
+Added option to remove selected dashboard widgets and a fix for an issue that was introduced by WordPress 3.4 which put the title tag value of the logo in the head section of the html.
+
+= 1.3 =
+Added option to remove generator meta tag from the head section of the html source.
+
+= 1.2 =
+Code cleanup, inclusion of [option to remove the admin shadow](http://www.vanderwijk.com/updates/remove-wordpress-3-2-admin-shadow-plugin/) which was introduced in WordPress 3.2.
+
+= 1.1 =
+Minor update, moved the Customize Admin Options page to the Settings menu.
 
 = 1.0 =
 First release
 
-= 1.1 =
-Fixed screenshots for plugin directory
-
-= 1.1.1 =
-Added showposts=-1 to the post query to display more than 10 custom posts in the widget configuration select box.
-
-= 1.2 =
-Added a checkbox in the widget to make it possible to show the custom post title in the widget area
-
-= 1.2.1 =
-The widget title now uses $before_title and $after_title to generate the appropriate tags to display it on the page. Hat tip: Etienne Proust.
-
-= 1.3 =
-Now the title of the content block is displayed in the admin interface to make it easy to manage the widgets.
-
-= 1.4 =
-The plugin has been translated into Dutch and German. Hat tip: Caspar Hübinger
-
-
 == Upgrade Notice ==
 
-= 1.1.1 =
-Now supports more than 10 custom posts in the select box. Note that after upgrading you might have to save the widget state before the correct posts are being displayed.
-
+= 1.2 =
+Because of a code rewrite and renaming of the options, all SETTINGS will BE LOST when upgrading the plugin. My apologies for this, but fortunately it should be simple to restore the settings via Settings - Customize Admin.
 
