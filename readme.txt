@@ -4,8 +4,8 @@ Author URI: http://www.vanderwijk.com/
 Donate link: http://www.vanderwijk.com/wordpress/support/#donate
 Tags: custom, admin, customize, logo
 Requires at least: 2.9.2
-Tested up to: 3.2
-Stable tag: 1.3
+Tested up to: 3.4.1
+Stable tag: 1.4
 
 With this plugin you can use your own logo on the WordPress login page.
 
@@ -15,9 +15,11 @@ With this plugin you can display your own logo on the WordPress login page. You 
 
 You can find more information about this plugin and a screencast video which shows the plugin in action on the [plugin homepage](http://www.vanderwijk.com/wordpress/wordpress-customize-admin-plugin/).
 
+The Customize Admin plugin also allows you to disable selected dashboard widgets and it can also disable the WordPress meta generator tag from the head section in your website's html code.
+
 == Screenshots ==
 
-1. You can specify the logo image and clickthrough link on the options page.
+1. You can specify the logo image and clickthrough link on the options page. It is also possible to disable the generator meta tag and specified dashboard widgets.
 
 
 == Installation ==
@@ -42,18 +44,20 @@ Finally, this plugin is ready to be localized. All you have to do is to use the 
 
 == Changelog ==
 
-= 1.0 =
-First release
-
-= 1.1 =
-Minor update, moved the Customize Admin Options page to the Settings menu.
-
-= 1.2 =
-Code cleanup, inclusion of [option to remove the admin shadow](http://www.vanderwijk.com/updates/remove-wordpress-3-2-admin-shadow-plugin/) which was introduced in WordPress 3.2.
+= 1.4 =
+Added option to remove selected dashboard widgets and a fix for an issue that was introduced by WordPress 3.4 which put the title tag value of the logo in the head section of the html.
 
 = 1.3 =
 Added option to remove generator meta tag from the head section of the html source.
 
+= 1.2 =
+Code cleanup, inclusion of [option to remove the admin shadow](http://www.vanderwijk.com/updates/remove-wordpress-3-2-admin-shadow-plugin/) which was introduced in WordPress 3.2.
+
+= 1.1 =
+Minor update, moved the Customize Admin Options page to the Settings menu.
+
+= 1.0 =
+First release
 
 == Upgrade Notice ==
 
