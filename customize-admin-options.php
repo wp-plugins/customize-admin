@@ -17,6 +17,11 @@ function ca_register_settings() {
 	register_setting( 'customize-admin-settings-group', 'ca_logo_url' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_shadow' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_generator' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_quick_press' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_plugins' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_recent_comments' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_wordpress_news' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_wordpress_other' );
 }
 
 // Include files for media uploader
@@ -47,7 +52,7 @@ function ca_settings_page() { ?>
 				<th scope="row"><?php _e('Custom Logo Link') ?></th>
 				<td><label for="ca_logo_url">
 					<input type="text" id="ca_logo_url" name="ca_logo_url" value="<?php echo get_option('ca_logo_url'); ?>" />
-					<br /><?php _e('If not specified, clicking on the logo will return you to the homepage.') ?>
+					<p class="description"><?php _e('If not specified, clicking on the logo will return you to the homepage.') ?></p>
 					</label>
 				</td>
 			</tr>
@@ -56,7 +61,7 @@ function ca_settings_page() { ?>
 				<td><label for="upload_image">
 					<input id="upload_image" type="text" size="36" name="ca_logo_file" value="<?php echo get_option('ca_logo_file'); ?>" />
 					<input id="upload_image_button" type="button" value="Upload Image" />
-					<br /><?php _e('Enter a URL or upload an image for the image. Maximum height: 67px, width: 300px.') ?>
+					<p class="description"><?php _e('Enter a URL or upload an image for the image. Maximum height: 70px, width: 310px.') ?></p>
 					</label>
 				</td>
 			</tr>
@@ -64,7 +69,7 @@ function ca_settings_page() { ?>
 				<th scope="row"><?php _e('Remove Admin Menu Shadow') ?></th>
 				<td><label for="ca_remove_shadow">
 					<input id="ca_remove_shadow" type="checkbox" name="ca_remove_shadow" value="1" <?php checked( '1', get_option( 'ca_remove_shadow' ) ); ?> />
-					<br /><?php _e('Selecting this option removes the shadow from the admin menu on the left.') ?>
+					<p class="description"><?php _e('Selecting this option removes the shadow from the admin menu on the left.') ?></p>
 					</label>
 				</td>
 			</tr>
@@ -72,7 +77,48 @@ function ca_settings_page() { ?>
 				<th scope="row"><?php _e('Remove Generator Meta Tag') ?></th>
 				<td><label for="ca_remove_generator">
 					<input id="ca_remove_generator" type="checkbox" name="ca_remove_generator" value="1" <?php checked( '1', get_option( 'ca_remove_generator' ) ); ?> />
-					<br /><?php _e('Selecting this option removes the generator meta tag from the html source.') ?>
+					<p class="description"><?php _e('Selecting this option removes the generator meta tag from the html source.') ?></p>
+					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e('Remove Dashboard Widgets') ?></th>
+				<td><label for="ca_remove_dashboard_quick_press">
+					<input id="ca_remove_dashboard_quick_press" type="checkbox" name="ca_remove_dashboard_quick_press" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_quick_press' ) ); ?> /> <?php _e('Quick Press') ?>
+					<p class="description"><?php _e('Selecting this option removes the Quick Press dashboard widget.') ?></p>
+					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"></th>
+				<td><label for="ca_remove_dashboard_plugins">
+					<input id="ca_remove_dashboard_plugins" type="checkbox" name="ca_remove_dashboard_plugins" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_plugins' ) ); ?> /> <?php _e('Plugins') ?>
+					<p class="description"><?php _e('Selecting this option removes the plugins dashboard widget.') ?></p>
+					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"></th>
+				<td><label for="ca_remove_dashboard_recent_comments">
+					<input id="ca_remove_dashboard_recent_comments" type="checkbox" name="ca_remove_dashboard_recent_comments" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_recent_comments' ) ); ?> /> <?php _e('Recent Comments') ?>
+					<p class="description"><?php _e('Selecting this option removes the recent comments dashboard widget.') ?></p>
+					</label>
+				</td>
+			</tr>
+			
+			<tr valign="top">
+				<th scope="row"></th>
+				<td><label for="ca_remove_dashboard_wordpress_news">
+					<input id="ca_remove_dashboard_wordpress_news" type="checkbox" name="ca_remove_dashboard_wordpress_news" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_wordpress_news' ) ); ?> /> <?php _e('WordPress Site News') ?>
+					<p class="description"><?php _e('Selecting this option removes the WordPress Site News dashboard widget.') ?></p>
+					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"></th>
+				<td><label for="ca_remove_dashboard_wordpress_other">
+					<input id="ca_remove_dashboard_wordpress_other" type="checkbox" name="ca_remove_dashboard_wordpress_other" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_wordpress_other' ) ); ?> /> <?php _e('WordPress Other News') ?>
+					<p class="description"><?php _e('Selecting this option removes the Other WordPress News dashboard widget.') ?></p>
 					</label>
 				</td>
 			</tr>
