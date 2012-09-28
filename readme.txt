@@ -5,7 +5,7 @@ Donate link: http://www.vanderwijk.com/wordpress/support/#donate
 Tags: custom, admin, customize, logo
 Requires at least: 2.9.2
 Tested up to: 3.4.2
-Stable tag: 1.4
+Stable tag: 1.5
 
 With this plugin you can use your own logo on the WordPress login page.
 
