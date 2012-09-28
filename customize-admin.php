@@ -3,11 +3,11 @@
  Plugin Name: Customize Admin
  Plugin URI: http://www.vanderwijk.com/wordpress/customize-admin/
  Description: This plugin allows you to customize the appearance and branding of the WordPress admin interface.
- Version: 1.4
+ Version: 1.5
  Author: Johan van der Wijk
  Author URI: http://www.vanderwijk.com
 
- Release notes: 1.4 Added option to remove dashboard widgets and fix for issue that was introduced by WordPress 3.4
+ Release notes: 1.5 Added option to remove dashboard RSD and WLW meta tags and image size fix for login logo
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ function ca_logo_url($url) {
 // CSS for custom logo on the login screen
 function ca_logo_file() {
 	if ( get_option( 'ca_logo_file' ) != '' ) {
-		echo '<style>h1 a { background-image:url("' . get_option( 'ca_logo_file' ) . '")!important; }</style>';
+		echo '<style>h1 a { background-image:url("' . get_option( 'ca_logo_file' ) . '")!important; background-size:auto!important; }</style>';
 	} else {
 		$stylesheet_uri = get_bloginfo( 'siteurl' ) . '/' . PLUGINDIR . '/' . dirname( plugin_basename(__FILE__) ) . '/customize-admin.css';
 		echo '<link rel="stylesheet" type="text/css" href="' . $stylesheet_uri . '" />';
@@ -57,10 +57,24 @@ function ca_add_styles() {
 	}
 }
 
-// Remove the shadow from the left menu
-function ca_remove_generator() {
-	if ( get_option( 'ca_remove_generator' ) != '' ) {
+// Remove the generator meta tag
+function ca_remove_meta_generator() {
+	if ( get_option( 'ca_remove_meta_generator' ) != '' ) {
 		remove_action( 'wp_head', 'wp_generator' );
+	}
+}
+
+// Remove the RSD meta tag
+function ca_remove_meta_rsd() {
+	if ( get_option( 'ca_remove_meta_rsd' ) != '' ) {
+		remove_action('wp_head', 'rsd_link');
+	}
+}
+
+// Remove the WLW meta tag
+function ca_remove_meta_wlw() {
+	if ( get_option( 'ca_remove_meta_wlw' ) != '' ) {
+		remove_action('wp_head', 'wlwmanifest_link');
 	}
 }
 
@@ -103,7 +117,9 @@ add_filter( 'login_headertitle', 'ca_logo_title' );
 add_filter( 'login_headerurl', 'ca_logo_url' );
 add_action( 'login_head', 'ca_logo_file' );
 add_action( 'admin_head', 'ca_add_styles' );
-add_action( 'init', 'ca_remove_generator' );
+add_action( 'init', 'ca_remove_meta_generator' );
+add_action( 'init', 'ca_remove_meta_rsd' );
+add_action( 'init', 'ca_remove_meta_wlw' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_quick_press' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_plugins' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_recent_comments' );

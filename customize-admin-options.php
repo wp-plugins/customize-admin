@@ -16,7 +16,9 @@ function ca_register_settings() {
 	register_setting( 'customize-admin-settings-group', 'ca_logo_file' );
 	register_setting( 'customize-admin-settings-group', 'ca_logo_url' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_shadow' );
-	register_setting( 'customize-admin-settings-group', 'ca_remove_generator' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_generator' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_rsd' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_wlw' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_quick_press' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_plugins' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_recent_comments' );
@@ -75,9 +77,25 @@ function ca_settings_page() { ?>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><?php _e( 'Remove Generator Meta Tag' ); ?></th>
-				<td><label for="ca_remove_generator">
-					<input id="ca_remove_generator" type="checkbox" name="ca_remove_generator" value="1" <?php checked( '1', get_option( 'ca_remove_generator' ) ); ?> />
+				<td><label for="ca_remove_meta_generator">
+					<input id="ca_remove_meta_generator" type="checkbox" name="ca_remove_meta_generator" value="1" <?php checked( '1', get_option( 'ca_remove_meta_generator' ) ); ?> />
 					<p class="description"><?php _e( 'Selecting this option removes the generator meta tag from the html source.' ); ?></p>
+					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e( 'Remove RSD Meta Tag' ); ?></th>
+				<td><label for="ca_remove_meta_rsd">
+					<input id="ca_remove_meta_rsd" type="checkbox" name="ca_remove_meta_rsd" value="1" <?php checked( '1', get_option( 'ca_remove_meta_rsd' ) ); ?> />
+					<p class="description"><?php _e( 'Selecting this option removes the RSD meta tag from the html source.' ); ?></p>
+					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e( 'Remove WLW Meta Tag' ); ?></th>
+				<td><label for="ca_remove_meta_wlw">
+					<input id="ca_remove_meta_wlw" type="checkbox" name="ca_remove_meta_wlw" value="1" <?php checked( '1', get_option( 'ca_remove_meta_wlw' ) ); ?> />
+					<p class="description"><?php _e( 'Selecting this option removes the WLW meta tag from the html source.' ); ?></p>
 					</label>
 				</td>
 			</tr>
