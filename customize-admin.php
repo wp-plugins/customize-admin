@@ -36,7 +36,7 @@ function ca_logo_url($url) {
 	if ( get_option( 'ca_logo_url' ) != '') {
 		return get_option( 'ca_logo_url' );
 	} else {
-		return get_bloginfo( 'siteurl' );
+		return get_bloginfo( 'url' );
 	}
 }
 
@@ -45,7 +45,7 @@ function ca_logo_file() {
 	if ( get_option( 'ca_logo_file' ) != '' ) {
 		echo '<style>h1 a { background-image:url("' . get_option( 'ca_logo_file' ) . '")!important; background-size:auto!important; }</style>';
 	} else {
-		$stylesheet_uri = get_bloginfo( 'siteurl' ) . '/' . PLUGINDIR . '/' . dirname( plugin_basename(__FILE__) ) . '/customize-admin.css';
+		$stylesheet_uri = get_bloginfo( 'url' ) . '/' . PLUGINDIR . '/' . dirname( plugin_basename(__FILE__) ) . '/customize-admin.css';
 		echo '<link rel="stylesheet" type="text/css" href="' . $stylesheet_uri . '" />';
 	}
 }
