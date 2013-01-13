@@ -4,8 +4,8 @@ Author URI: http://www.vanderwijk.com/
 Donate link: http://www.vanderwijk.com/wordpress/support/#donate
 Tags: custom, admin, customize, logo
 Requires at least: 2.9.2
-Tested up to: 3.4.2
-Stable tag: 1.5
+Tested up to: 3.5
+Stable tag: 1.5.1
 
 With this plugin you can use your own logo on the WordPress login page.
 
@@ -43,6 +43,9 @@ I also am not aware of any other plugins that allow you to specify a clickthroug
 Finally, this plugin is ready to be localized. All you have to do is to use the POT file for translating.
 
 == Changelog ==
+
+= 1.5.1 = 
+Changed get_bloginfo('siteurl') to get_bloginfo('url') to prevent notices from being displayed on the login screen when debug is enabled.
 
 = 1.5 =
 Added option to remove dashboard RSD and WLW meta tags and image size fix for login logo

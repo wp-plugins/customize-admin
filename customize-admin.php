@@ -3,11 +3,11 @@
  Plugin Name: Customize Admin
  Plugin URI: http://www.vanderwijk.com/wordpress/customize-admin/
  Description: This plugin allows you to customize the appearance and branding of the WordPress admin interface.
- Version: 1.5
+ Version: 1.5.1
  Author: Johan van der Wijk
  Author URI: http://www.vanderwijk.com
 
- Release notes: 1.5 Added option to remove dashboard RSD and WLW meta tags and image size fix for login logo
+ Release notes: 1.5.1 Changed get_bloginfo( 'siteurl' ) to get_bloginfo( 'url' ) to prevent debug notices
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
