@@ -15,6 +15,7 @@ function ca_create_menu() {
 function ca_register_settings() {
 	register_setting( 'customize-admin-settings-group', 'ca_logo_file' );
 	register_setting( 'customize-admin-settings-group', 'ca_logo_url' );
+	register_setting( 'customize-admin-settings-group', 'ca_login_background_color' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_shadow' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_generator' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_rsd' );
@@ -24,6 +25,7 @@ function ca_register_settings() {
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_recent_comments' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_wordpress_news' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_wordpress_other' );
+	register_setting( 'customize-admin-settings-group', 'ca_custom_css' );
 }
 
 // Include files for media uploader
@@ -32,10 +34,12 @@ function ca_admin_scripts() {
 	wp_enqueue_script( 'my-upload' );
 	wp_enqueue_script( 'media-upload' );
 	wp_enqueue_script( 'thickbox' );
+	wp_enqueue_script( 'wp-color-picker' );
 }
 
 function ca_admin_styles() {
 	wp_enqueue_style( 'thickbox' );
+	wp_enqueue_style( 'wp-color-picker' );
 }
 
 // Only include media uploader scripts and styles on custmize options page
@@ -64,6 +68,14 @@ function ca_settings_page() { ?>
 					<input id="upload_image" type="text" size="36" name="ca_logo_file" value="<?php echo get_option( 'ca_logo_file' ); ?>" />
 					<input id="upload_image_button" type="button" value="Upload Image" />
 					<p class="description"><?php _e( 'Enter a URL or upload logo image. Maximum height: 70px, width: 310px.' ); ?></p>
+					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e( 'Custom Login Background' ); ?></th>
+				<td><label for="ca_login_background_color">
+					<input type="text" id="ca_login_background_color" class="color-picker" name="ca_login_background_color" value="<?php echo get_option( 'ca_login_background_color' ); ?>" />
+					<p class="description"><?php _e( '' ); ?></p>
 					</label>
 				</td>
 			</tr>
@@ -123,7 +135,6 @@ function ca_settings_page() { ?>
 					</label>
 				</td>
 			</tr>
-			
 			<tr valign="top">
 				<th scope="row"></th>
 				<td><label for="ca_remove_dashboard_wordpress_news">
@@ -138,6 +149,13 @@ function ca_settings_page() { ?>
 					<input id="ca_remove_dashboard_wordpress_other" type="checkbox" name="ca_remove_dashboard_wordpress_other" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_wordpress_other' ) ); ?> /> <?php _e( 'WordPress Other News' ); ?>
 					<p class="description"><?php _e( 'Selecting this option removes the Other WordPress News dashboard widget.' ); ?></p>
 					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e( 'Custom CSS' ); ?></th>
+				<td>
+					<textarea id="ca_custom_css" name="ca_custom_css" cols="70" rows="5"><?php echo get_option( 'ca_custom_css' ); ?></textarea>
+					<p class="description"><?php _e( 'Add your own css to the WordPress dashboard.' ); ?></p>
 				</td>
 			</tr>
 		</table>

@@ -3,11 +3,11 @@
  Plugin Name: Customize Admin
  Plugin URI: http://www.vanderwijk.com/wordpress/customize-admin/
  Description: This plugin allows you to customize the appearance and branding of the WordPress admin interface.
- Version: 1.5.1
+ Version: 1.6
  Author: Johan van der Wijk
  Author URI: http://www.vanderwijk.com
 
- Release notes: 1.5.1 Changed get_bloginfo( 'siteurl' ) to get_bloginfo( 'url' ) to prevent debug notices
+ Release notes: 1.6 now includes a color picker for setting a background color and the option to add custom styles to the login screen.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -43,10 +43,15 @@ function ca_logo_url($url) {
 // CSS for custom logo on the login screen
 function ca_logo_file() {
 	if ( get_option( 'ca_logo_file' ) != '' ) {
-		echo '<style>h1 a { background-image:url("' . get_option( 'ca_logo_file' ) . '")!important; background-size:auto!important; }</style>';
+		echo '<style>h1 a { background-image: url("' . get_option( 'ca_logo_file' ) . '")!important; background-size: auto!important; }</style>';
 	} else {
-		$stylesheet_uri = get_bloginfo( 'url' ) . '/' . PLUGINDIR . '/' . dirname( plugin_basename(__FILE__) ) . '/customize-admin.css';
-		echo '<link rel="stylesheet" type="text/css" href="' . $stylesheet_uri . '" />';
+		echo '<style>h1 a { background-image: url("' . plugins_url( 'vanderwijk.png' , __FILE__ ) . '")!important; background-size: auto!important; }</style>';
+	}
+}
+// CSS for custom background color
+function ca_login_background_color() {
+	if ( get_option( 'ca_login_background_color' ) != '' ) {
+		echo '<style>body { background-color: ' . get_option( 'ca_login_background_color' ) . '!important; } </style>';
 	}
 }
 
@@ -113,10 +118,19 @@ function ca_remove_dashboard_wordpress_other() {
 	}
 }
 
+// CSS for custom CSS
+function ca_custom_css() {
+	if ( get_option( 'ca_custom_css' ) != '' ) {
+		echo '<style>'. get_option( 'ca_custom_css' ) . '</style>';
+	}
+}
+
 add_filter( 'login_headertitle', 'ca_logo_title' );
 add_filter( 'login_headerurl', 'ca_logo_url' );
 add_action( 'login_head', 'ca_logo_file' );
+add_action( 'login_head', 'ca_login_background_color' );
 add_action( 'admin_head', 'ca_add_styles' );
+add_action( 'login_head', 'ca_custom_css' );
 add_action( 'init', 'ca_remove_meta_generator' );
 add_action( 'init', 'ca_remove_meta_rsd' );
 add_action( 'init', 'ca_remove_meta_wlw' );

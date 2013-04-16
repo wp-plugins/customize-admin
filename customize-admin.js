@@ -34,3 +34,8 @@ jQuery(document).ready(function() {
 		}
 	}
 });
+
+// Color picker
+jQuery(document).ready(function() {
+	jQuery('.color-picker').wpColorPicker();
+});
