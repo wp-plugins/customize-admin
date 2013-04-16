@@ -15,7 +15,7 @@ With this plugin you can use customize the appearance of the WordPress login pag
 
 You can find more information about this plugin and a screencast video which shows the plugin in action on the [plugin homepage](http://www.vanderwijk.com/wordpress/wordpress-customize-admin-plugin/).
 
-The Customize Admin plugin also allows you to disable selected dashboard widgets and it can also disable the WordPress meta generator tag from the head section in your website's html code.
+The Customize Admin plugin also allows you to disable selected dashboard widgets and it can also remove the WordPress meta generator tag from the head section in your website's html code.
 
 == Screenshots ==
 
