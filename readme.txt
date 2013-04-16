@@ -7,11 +7,11 @@ Requires at least: 2.9.2
 Tested up to: 3.5.1
 Stable tag: 1.6
 
-With this plugin you can use your own logo on the WordPress login page.
+With this plugin you can use customize the appearance of the WordPress login page and dashboard.
 
 == Description ==
 
-With this plugin you can display your own logo on the WordPress login page. You can also specify the link attached to the logo. By default you are redirected to the homepage of your site.
+With this plugin you can use customize the appearance of the WordPress login page and dashboard. You can upload a custom image for the login screen and specify the link attached to the logo. By default you are redirected to the homepage of your site.
 
 You can find more information about this plugin and a screencast video which shows the plugin in action on the [plugin homepage](http://www.vanderwijk.com/wordpress/wordpress-customize-admin-plugin/).
 
@@ -20,7 +20,6 @@ The Customize Admin plugin also allows you to disable selected dashboard widgets
 == Screenshots ==
 
 1. You can specify the logo image and clickthrough link on the options page. It is also possible to disable the generator meta tag and specified dashboard widgets.
-
 
 == Installation ==
 
@@ -69,7 +68,3 @@ Minor update, moved the Customize Admin Options page to the Settings menu.
 First release
 
 == Upgrade Notice ==
-
-= 1.2 =
-Because of a code rewrite and renaming of the options, all SETTINGS will BE LOST when upgrading the plugin. My apologies for this, but fortunately it should be simple to restore the settings via Settings - Customize Admin.
-
