@@ -4,8 +4,8 @@ Author URI: http://www.vanderwijk.com/
 Donate link: http://www.vanderwijk.com/wordpress/support/#donate
 Tags: custom, admin, customize, logo
 Requires at least: 2.9.2
-Tested up to: 3.5.1
-Stable tag: 1.6
+Tested up to: 3.6
+Stable tag: 1.6.1
 
 With this plugin you can use customize the appearance of the WordPress login page and dashboard.
 
@@ -42,6 +42,9 @@ I also am not aware of any other plugins that allow you to specify a clickthroug
 Finally, this plugin is ready to be localized. All you have to do is to use the POT file for translating.
 
 == Changelog ==
+
+= 1.6.1 =
+Added an option for removing the RSS feed links from the head section of the html source.
 
 = 1.6 =
 The Customize Admin plugin now includes the possibility to select a background color for the login screen by using the color picker and you can now also add custom CSS code to style the WordPress login screen.

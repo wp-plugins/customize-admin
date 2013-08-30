@@ -3,7 +3,7 @@
  Plugin Name: Customize Admin
  Plugin URI: http://www.vanderwijk.com/wordpress/customize-admin/
  Description: This plugin allows you to customize the appearance and branding of the WordPress admin interface.
- Version: 1.6
+ Version: 1.6.1
  Author: Johan van der Wijk
  Author URI: http://www.vanderwijk.com
 
@@ -33,7 +33,7 @@ function ca_logo_title() {
 
 // URL for the logo on the login screen
 function ca_logo_url($url) {
-	if ( get_option( 'ca_logo_url' ) != '') {
+	if ( get_option( 'ca_logo_url' ) != '' ) {
 		return get_option( 'ca_logo_url' );
 	} else {
 		return get_bloginfo( 'url' );
@@ -72,14 +72,22 @@ function ca_remove_meta_generator() {
 // Remove the RSD meta tag
 function ca_remove_meta_rsd() {
 	if ( get_option( 'ca_remove_meta_rsd' ) != '' ) {
-		remove_action('wp_head', 'rsd_link');
+		remove_action( 'wp_head', 'rsd_link' );
 	}
 }
 
 // Remove the WLW meta tag
 function ca_remove_meta_wlw() {
 	if ( get_option( 'ca_remove_meta_wlw' ) != '' ) {
-		remove_action('wp_head', 'wlwmanifest_link');
+		remove_action( 'wp_head', 'wlwmanifest_link' );
+	}
+}
+
+// Remove the RSS feed links
+function ca_remove_rss_links() {
+	if ( get_option( 'ca_remove_rss_links' ) != '' ) {
+		remove_action( 'wp_head', 'feed_links', 2 );  //removes feeds
+		remove_action( 'wp_head', 'feed_links_extra', 3 );  //removes comment feed links
 	}
 }
 
@@ -88,7 +96,7 @@ function ca_remove_dashboard_quick_press() {
 	if ( get_option( 'ca_remove_dashboard_quick_press' ) != '' ) {
 		remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
 	}
-} 
+}
 
 // Remove Plugins widget from dashboard
 function ca_remove_dashboard_plugins() {
@@ -134,6 +142,7 @@ add_action( 'login_head', 'ca_custom_css' );
 add_action( 'init', 'ca_remove_meta_generator' );
 add_action( 'init', 'ca_remove_meta_rsd' );
 add_action( 'init', 'ca_remove_meta_wlw' );
+add_action( 'init', 'ca_remove_rss_links' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_quick_press' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_plugins' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_recent_comments' );

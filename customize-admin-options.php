@@ -20,6 +20,7 @@ function ca_register_settings() {
 	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_generator' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_rsd' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_wlw' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_rss_links' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_quick_press' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_plugins' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_recent_comments' );
@@ -108,6 +109,14 @@ function ca_settings_page() { ?>
 				<td><label for="ca_remove_meta_wlw">
 					<input id="ca_remove_meta_wlw" type="checkbox" name="ca_remove_meta_wlw" value="1" <?php checked( '1', get_option( 'ca_remove_meta_wlw' ) ); ?> />
 					<p class="description"><?php _e( 'Selecting this option removes the WLW meta tag from the html source.' ); ?></p>
+					</label>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e( 'Remove RSS feed links' ); ?></th>
+				<td><label for="ca_remove_rss_links">
+					<input id="ca_remove_rss_links" type="checkbox" name="ca_remove_rss_links" value="1" <?php checked( '1', get_option( 'ca_remove_rss_links' ) ); ?> />
+					<p class="description"><?php _e( 'Selecting this option removes the RSS feed link from the html source.' ); ?></p>
 					</label>
 				</td>
 			</tr>
