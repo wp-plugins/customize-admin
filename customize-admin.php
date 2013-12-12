@@ -3,11 +3,11 @@
  Plugin Name: Customize Admin
  Plugin URI: http://www.vanderwijk.com/wordpress/customize-admin/
  Description: This plugin allows you to customize the appearance and branding of the WordPress admin interface.
- Version: 1.6.2
+ Version: 1.6.3
  Author: Johan van der Wijk
  Author URI: http://www.vanderwijk.com
 
- Release notes: 1.6.2 WordPress 3.8 compatibility fix
+ Release notes: 1.6.3 WordPress 3.8 compatibility fix
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -43,9 +43,9 @@ function ca_logo_url($url) {
 // CSS for custom logo on the login screen
 function ca_logo_file() {
 	if ( get_option( 'ca_logo_file' ) != '' ) {
-		echo '<style>h1 a { background-image: url("' . get_option( 'ca_logo_file' ) . '")!important; background-size: auto auto!important; width: 320px; }</style>';
+		echo '<style>.login h1 a { background-image: url("' . get_option( 'ca_logo_file' ) . '")!important; background-size: auto auto!important; width: 320px; }</style>';
 	} else {
-		echo '<style>h1 a { background-image: url("' . plugins_url( 'vanderwijk.png' , __FILE__ ) . '")!important; background-size: auto auto!important; width: 320px; }</style>';
+		echo '<style>.login h1 a { background-image: url("' . plugins_url( 'vanderwijk.png' , __FILE__ ) . '")!important; background-size: auto auto!important; width: 320px; }</style>';
 	}
 }
 // CSS for custom background color
