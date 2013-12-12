@@ -5,7 +5,7 @@ Donate link: http://www.vanderwijk.com/wordpress/support/#donate
 Tags: custom, admin, customize, logo
 Requires at least: 2.9.2
 Tested up to: 3.8
-Stable tag: 1.6.3
+Stable tag: 1.6.4
 
 With this plugin you can use customize the appearance of the WordPress login page and dashboard.
 
@@ -43,8 +43,8 @@ Finally, this plugin is ready to be localized. All you have to do is to use the 
 
 == Changelog ==
 
-= 1.6.1 =
-WordPress 3.8 compatibility fix
+= 1.6.4 =
+WordPress 3.8 compatibility fixes
 
 = 1.6.1 =
 Added an option for removing the RSS feed links from the head section of the html source.

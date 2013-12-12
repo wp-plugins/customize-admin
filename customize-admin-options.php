@@ -16,7 +16,6 @@ function ca_register_settings() {
 	register_setting( 'customize-admin-settings-group', 'ca_logo_file' );
 	register_setting( 'customize-admin-settings-group', 'ca_logo_url' );
 	register_setting( 'customize-admin-settings-group', 'ca_login_background_color' );
-	register_setting( 'customize-admin-settings-group', 'ca_remove_shadow' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_generator' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_rsd' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_wlw' );
@@ -77,14 +76,6 @@ function ca_settings_page() { ?>
 				<td><label for="ca_login_background_color">
 					<input type="text" id="ca_login_background_color" class="color-picker" name="ca_login_background_color" value="<?php echo get_option( 'ca_login_background_color' ); ?>" />
 					<p class="description"><?php _e( '' ); ?></p>
-					</label>
-				</td>
-			</tr>
-			<tr valign="top">
-				<th scope="row"><?php _e( 'Remove Admin Menu Shadow' ); ?></th>
-				<td><label for="ca_remove_shadow">
-					<input id="ca_remove_shadow" type="checkbox" name="ca_remove_shadow" value="1" <?php checked( '1', get_option( 'ca_remove_shadow' ) ); ?> />
-					<p class="description"><?php _e( 'Selecting this option removes the shadow from the admin menu on the left.' ); ?></p>
 					</label>
 				</td>
 			</tr>
