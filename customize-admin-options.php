@@ -21,10 +21,8 @@ function ca_register_settings() {
 	register_setting( 'customize-admin-settings-group', 'ca_remove_meta_wlw' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_rss_links' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_quick_press' );
-	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_plugins' );
-	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_recent_comments' );
+	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_activity' );
 	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_wordpress_news' );
-	register_setting( 'customize-admin-settings-group', 'ca_remove_dashboard_wordpress_other' );
 	register_setting( 'customize-admin-settings-group', 'ca_custom_css' );
 }
 
@@ -114,24 +112,16 @@ function ca_settings_page() { ?>
 			<tr valign="top">
 				<th scope="row"><?php _e( 'Remove Dashboard Widgets' ); ?></th>
 				<td><label for="ca_remove_dashboard_quick_press">
-					<input id="ca_remove_dashboard_quick_press" type="checkbox" name="ca_remove_dashboard_quick_press" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_quick_press' ) ); ?> /> <?php _e( 'Quick Press' ); ?>
+					<input id="ca_remove_dashboard_quick_press" type="checkbox" name="ca_remove_dashboard_quick_press" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_quick_press' ) ); ?> /> <?php _e( 'Quick Draft' ); ?>
 					<p class="description"><?php _e( 'Selecting this option removes the Quick Press dashboard widget.' ); ?></p>
 					</label>
 				</td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"></th>
-				<td><label for="ca_remove_dashboard_plugins">
-					<input id="ca_remove_dashboard_plugins" type="checkbox" name="ca_remove_dashboard_plugins" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_plugins' ) ); ?> /> <?php _e( 'Plugins' ); ?>
-					<p class="description"><?php _e( 'Selecting this option removes the plugins dashboard widget.' ); ?></p>
-					</label>
-				</td>
-			</tr>
-			<tr valign="top">
-				<th scope="row"></th>
-				<td><label for="ca_remove_dashboard_recent_comments">
-					<input id="ca_remove_dashboard_recent_comments" type="checkbox" name="ca_remove_dashboard_recent_comments" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_recent_comments' ) ); ?> /> <?php _e( 'Recent Comments' ); ?>
-					<p class="description"><?php _e( 'Selecting this option removes the recent comments dashboard widget.' ); ?></p>
+				<td><label for="ca_remove_dashboard_activity">
+					<input id="ca_remove_dashboard_activity" type="checkbox" name="ca_remove_dashboard_activity" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_activity' ) ); ?> /> <?php _e( 'Activity' ); ?>
+					<p class="description"><?php _e( 'Selecting this option removes the activity dashboard widget.' ); ?></p>
 					</label>
 				</td>
 			</tr>
@@ -140,14 +130,6 @@ function ca_settings_page() { ?>
 				<td><label for="ca_remove_dashboard_wordpress_news">
 					<input id="ca_remove_dashboard_wordpress_news" type="checkbox" name="ca_remove_dashboard_wordpress_news" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_wordpress_news' ) ); ?> /> <?php _e( 'WordPress Site News' ); ?>
 					<p class="description"><?php _e( 'Selecting this option removes the WordPress Site News dashboard widget.' ); ?></p>
-					</label>
-				</td>
-			</tr>
-			<tr valign="top">
-				<th scope="row"></th>
-				<td><label for="ca_remove_dashboard_wordpress_other">
-					<input id="ca_remove_dashboard_wordpress_other" type="checkbox" name="ca_remove_dashboard_wordpress_other" value="1" <?php checked( '1', get_option( 'ca_remove_dashboard_wordpress_other' ) ); ?> /> <?php _e( 'WordPress Other News' ); ?>
-					<p class="description"><?php _e( 'Selecting this option removes the Other WordPress News dashboard widget.' ); ?></p>
 					</label>
 				</td>
 			</tr>

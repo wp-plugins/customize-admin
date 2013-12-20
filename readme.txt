@@ -5,7 +5,7 @@ Donate link: http://www.vanderwijk.com/wordpress/support/#donate
 Tags: custom, admin, customize, logo
 Requires at least: 2.9.2
 Tested up to: 3.8
-Stable tag: 1.6.5
+Stable tag: 1.6.6
 
 With this plugin you can use customize the appearance of the WordPress login page and dashboard.
 
@@ -42,6 +42,9 @@ I also am not aware of any other plugins that allow you to specify a clickthroug
 Finally, this plugin is ready to be localized. All you have to do is to use the POT file for translating.
 
 == Changelog ==
+
+= 1.6.6 =
+Changed dashboard widget visibility settings for WordPress 3.8 widget changes
 
 = 1.6.4 =
 WordPress 3.8 compatibility fixes

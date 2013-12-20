@@ -3,11 +3,11 @@
 Plugin Name: Customize Admin
 Plugin URI: http://www.vanderwijk.com/wordpress/customize-admin/
 Description: This plugin allows you to customize the appearance and branding of the WordPress admin interface.
-Version: 1.6.5
+Version: 1.6.6
 Author: Johan van der Wijk
 Author URI: http://www.vanderwijk.com
 
-Release notes: 1.6.5 WordPress 3.8 compatibility fix
+Release notes: 1.6.6 WordPress 3.8 dashboard widget settings
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -99,10 +99,10 @@ function ca_remove_dashboard_plugins() {
 	}
 }
 
-// Remove Recent Comments widget from dashboard
-function ca_remove_dashboard_recent_comments() {
-	if ( get_option( 'ca_remove_dashboard_recent_comments' ) != '' ) {
-		remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+// Remove Activity  widget from dashboard
+function ca_remove_dashboard_activity() {
+	if ( get_option( 'ca_remove_dashboard_activity' ) != '' ) {
+		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );
 	}
 }
 
@@ -138,9 +138,8 @@ add_action( 'init', 'ca_remove_meta_wlw' );
 add_action( 'init', 'ca_remove_rss_links' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_quick_press' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_plugins' );
-add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_recent_comments' );
+add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_activity' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_wordpress_news' );
-add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_wordpress_other' );
 
 require_once( 'customize-admin-options.php' );
 ?>
