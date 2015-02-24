@@ -3,11 +3,11 @@
 Plugin Name: Customize Admin
 Plugin URI: http://www.vanderwijk.com/wordpress/customize-admin/
 Description: This plugin allows you to customize the appearance and branding of the WordPress admin interface.
-Version: 1.6.6
+Version: 1.7
 Author: Johan van der Wijk
 Author URI: http://www.vanderwijk.com
 
-Release notes: 1.6.6 WordPress 3.8 dashboard widget settings
+Release notes: 1.7 Using new media uploader
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -24,26 +24,34 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+if ( ! defined( 'ABSPATH' ) ) die( 'Error!' );
+
+// Load the required files needed for the plugin to run in the proper order and add needed functions to the required hooks.
+function customize_admin_plugin_init() {
+	load_plugin_textdomain( 'customize-admin-plugin', false, 'customize-admin/languages' );
+}
+add_action( 'plugins_loaded', 'customize_admin_plugin_init' );
+
 // Title attribute for the logo on the login screen
 function ca_logo_title() {
 	if ( get_option( 'ca_logo_url' ) != '' ) {
-		return sprintf ( __( 'Go to %1$s' ), get_option ( 'ca_logo_url' ) );
+		return sprintf ( __( 'Go to %1$s', 'customize-admin-plugin' ), esc_url( get_option ( 'ca_logo_url' ) ) );
 	}
 }
 
 // URL for the logo on the login screen
 function ca_logo_url($url) {
 	if ( get_option( 'ca_logo_url' ) != '' ) {
-		return get_option( 'ca_logo_url' );
+		return esc_url( get_option( 'ca_logo_url' ) );
 	} else {
-		return get_bloginfo( 'url' );
+		return esc_url( get_bloginfo( 'url' ) );
 	}
 }
 
 // CSS for custom logo on the login screen
 function ca_logo_file() {
 	if ( get_option( 'ca_logo_file' ) != '' ) {
-		echo '<style>.login h1 a { background-image: url("' . get_option( 'ca_logo_file' ) . '"); background-size: auto auto; width: 320px; }</style>';
+		echo '<style>.login h1 a { background-image: url("' . esc_url ( get_option( 'ca_logo_file' ) ) . '"); background-size: auto auto; width: 320px; }</style>';
 	} else {
 		echo '<style>.login h1 a { background-image: url("' . plugins_url( 'vanderwijk.png' , __FILE__ ) . '"); background-size: auto auto; width: 320px; }</style>';
 	}
@@ -52,7 +60,14 @@ function ca_logo_file() {
 // CSS for custom background color
 function ca_login_background_color() {
 	if ( get_option( 'ca_login_background_color' ) != '' ) {
-		echo '<style>body { background-color: ' . get_option( 'ca_login_background_color' ) . '!important; } </style>';
+		echo '<style>body { background-color: ' . esc_html ( get_option( 'ca_login_background_color' ) ) . '!important; } </style>';
+	}
+}
+
+// CSS for custom CSS
+function ca_custom_css() {
+	if ( get_option( 'ca_custom_css' ) != '' ) {
+		echo '<style>'. strip_tags( get_option( 'ca_custom_css' ) ) . '</style>';
 	}
 }
 
@@ -80,8 +95,8 @@ function ca_remove_meta_wlw() {
 // Remove the RSS feed links
 function ca_remove_rss_links() {
 	if ( get_option( 'ca_remove_rss_links' ) != '' ) {
-		remove_action( 'wp_head', 'feed_links', 2 );  //removes feeds
-		remove_action( 'wp_head', 'feed_links_extra', 3 );  //removes comment feed links
+		remove_action( 'wp_head', 'feed_links', 2 ); //removes feeds
+		remove_action( 'wp_head', 'feed_links_extra', 3 ); //removes comment feed links
 	}
 }
 
@@ -120,13 +135,6 @@ function ca_remove_dashboard_wordpress_other() {
 	}
 }
 
-// CSS for custom CSS
-function ca_custom_css() {
-	if ( get_option( 'ca_custom_css' ) != '' ) {
-		echo '<style>'. get_option( 'ca_custom_css' ) . '</style>';
-	}
-}
-
 add_filter( 'login_headertitle', 'ca_logo_title' );
 add_filter( 'login_headerurl', 'ca_logo_url' );
 add_action( 'login_head', 'ca_logo_file' );
@@ -142,4 +150,3 @@ add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_activity' );
 add_action( 'wp_dashboard_setup', 'ca_remove_dashboard_wordpress_news' );
 
 require_once( 'customize-admin-options.php' );
-?>
