@@ -1,10 +1,9 @@
 === Customize Admin ===
 Contributors: vanderwijk
 Author URI: http://www.vanderwijk.com/
-Donate link: http://www.vanderwijk.com/wordpress/support/#donate
-Tags: custom, admin, customize, logo
+Tags: custom, admin, customize, logo, login, dashboard, css, meta
 Requires at least: 3.5
-Tested up to: 4.1.1
+Tested up to: 4.2
 Stable tag: 1.7
 
 With this plugin you can use customize the appearance of the WordPress login page and dashboard.
